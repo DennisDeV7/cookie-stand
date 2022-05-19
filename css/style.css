@@ -1,0 +1,67 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+  background-color: rgb(245,72,66);
+  height: 100px;
+}
+
+header h1{
+  justify-content: center;
+  display: flex;
+  justify-content: center;
+  padding-top: 30px;
+  font-size: 37px;
+}
+
+nav {
+  width: 960px;
+  margin: auto;
+}
+
+main {
+  width: 960px;
+  margin: auto;
+  background-color: white;
+}
+
+#salmon {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+#merch {
+  background-color: white;
+}
+
+#merch ul{
+  display: flex;
+  justify-content: space-between;
+}
+
+#merch ul img {
+  height: 200px;
+}
+
+#merch h2 {
+  display: flex;
+  justify-content: center;
+  font-size: 24px;
+}
+
+#locations section{
+  display: flex;
+  justify-content: space-between;
+}
+
+
+
+
+
+
+
+
+
+
