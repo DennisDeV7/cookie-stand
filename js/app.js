@@ -18,7 +18,7 @@ function randomCust(min, max){
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
 
-// ************Declaring Global Table***********************8
+// ************Declaring Global Table***********************
 let tableElem = document.createElement('table');
 locationsTable.appendChild(tableElem);
 
@@ -68,15 +68,6 @@ CookieStand.prototype.render = function(){
 
 };
 
-
-//********* INITIATE COOKIE STANDS **************
-new CookieStand('Seattle', 23, 65, 6.3);
-new CookieStand('Tokyo', 3, 24, 1.2);
-new CookieStand('Dubai', 11, 38, 3.7);
-new CookieStand('Paris', 20, 38, 2.3);
-new CookieStand('Lima', 2, 16, 4.6);
-
-
 //******Creating External Functions ************/
 function tableHeader(){
   let row1 = document.createElement('tr');
@@ -95,13 +86,38 @@ function tableHeader(){
   let thTotal = document.createElement('th');
   thTotal.textContent += 'Total';
   row1.appendChild(thTotal);
-
 }
 
 function tableFooter(){
+  let totalArr = [];
+  for(let i = 0; i < hours.length; i++){
+    totalArr.push(0);
+  }
+  for(let i = 0; i < cookieLocations.length; i++){
+    let currentCity = cookieLocations[i];
+    for(let j = 0; j < currentCity.results.length; j++){
+      totalArr[j] += currentCity.results[j];
+    }
+  }
+
+  let totalTotal = 0;
+  for(let i = 0; i < totalArr.length; i++){
+    totalTotal += totalArr[i];
+  }
+  totalArr.push(totalTotal);
+
+  let lastRow = document.createElement('tr');
+  tableElem.appendChild(lastRow);
+
   let rowFooter = document.createElement('th');
   rowFooter.textContent = 'Total';
-  tableElem.appendChild(rowFooter);
+  lastRow.appendChild(rowFooter);
+  for(let i = 0; i < totalArr.length; i++){
+    let newTotal = document.createElement('td');
+    newTotal.textContent = totalArr[i];
+    lastRow.appendChild(newTotal);
+
+  }
 }
 
 function renderAllStands(){
@@ -111,6 +127,12 @@ function renderAllStands(){
   }
 }
 
+//********* INITIATE COOKIE STANDS **************
+new CookieStand('Seattle', 23, 65, 6.3);
+new CookieStand('Tokyo', 3, 24, 1.2);
+new CookieStand('Dubai', 11, 38, 3.7);
+new CookieStand('Paris', 20, 38, 2.3);
+new CookieStand('Lima', 2, 16, 4.6);
 
 //**********Calling All Functions************** */
 tableHeader();
