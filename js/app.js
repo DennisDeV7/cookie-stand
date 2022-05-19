@@ -12,6 +12,9 @@ console.log(locationSection);
 let locationsTable = document.getElementById('table');
 console.log(locationsTable);
 
+let locationForm = document.getElementById('my-form');
+
+
 // *********** HELPER FUNCTION - Generate random number ***********
 // from mdn docs
 function randomCust(min, max){
@@ -67,6 +70,32 @@ CookieStand.prototype.render = function(){
   newRow.appendChild(newElement);
 
 };
+
+//******** Step 3: Define the callback function ********
+function handleSubmit(event){
+  event.preventDefault();
+
+  let locationName = event.target.locationName.value;
+  let minCust = +event.target.minCust.value;
+  let maxCust = +event.target.maxCust.value;
+  let avgCookie = +event.target.avgCookie.value;
+
+  let newLocation = new CookieStand(locationName, minCust, maxCust, avgCookie);
+
+
+  // My attempt at removing the footer
+  // let rws = locationsTable.getElementsByTagName('tr');
+  // locationsTable.removeChild(rws[rws.length-1]);
+
+  newLocation.getCust();
+  newLocation.render();
+
+  // remove footer and recreate it
+  locationForm.reset();
+}
+// Event Listener
+locationForm.addEventListener('submit', handleSubmit);
+
 
 //******Creating External Functions ************/
 function tableHeader(){
