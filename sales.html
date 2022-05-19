@@ -8,6 +8,30 @@
   </header>
   <body>
     <main>
+      <form id="my-form">
+        <fieldset>
+          <legend>New Cookie Stand</legend>
+
+          <label for="locationName">New Location:</label>
+          <input id="locationName" type="text" name="locationName">
+          
+
+        </fieldset>
+        <fieldset>
+          <legend>Placement Information</legend>
+
+          <label for="minCust">Min Customers</label>
+          <input id="minCust" type="number" name="minCust">
+
+          <label for="maxCust">Max Customers</label>
+          <input id="maxCust" type="number" name="maxCust">
+
+          <label for="avgCookie">Avg Cookie per Customer</label>
+          <input id="avgCookie" type="number" name="avgCookie">
+          
+        </fieldset>
+        <button type="submit">Submit</button>
+      </form>
       <section id="location-profiles"></section>
       <section id="table"></section>
       <script src="js/app.js" type="text/javascript"></script>
