@@ -83,15 +83,14 @@ function handleSubmit(event){
   let newLocation = new CookieStand(locationName, minCust, maxCust, avgCookie);
 
 
-  // My attempt at removing the footer
-  // let rws = locationsTable.getElementsByTagName('tr');
-  // locationsTable.removeChild(rws[rws.length-1]);
+  // Delete last row, call get cust, render all locations, call footer again to get correct totals
 
+  tableElem.deleteRow(-1);
   newLocation.getCust();
   newLocation.render();
+  tableFooter();
 
   // remove footer and recreate it
-  locationForm.reset();
 }
 // Event Listener
 locationForm.addEventListener('submit', handleSubmit);
